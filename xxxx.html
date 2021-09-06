@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    var xmlHttp = new XMLHttpRequest();       // XMLHttpRequest 객체를 생성함.
+    var datas;
+    // xmlHttp.onreadystatechange = function () { // onreadystatechange 이벤트 핸들러를 작성함.
+    //     if (this.status == 200 && this.readyState == this.DONE) {
+    //         // 요청한 데이터를 문자열로 반환함.
+    //         console.log(xmlHttp.responseText)
+    //         datas = xmlHttp.responseText;
+    //     }
+    // };
+    // xmlHttp.open("GET", "http://localhost:3000/board", true);
+    // xmlHttp.send();
+
+
+    fetch('http://localhost:3000/board')
+        .then(function (response) {
+            console.log(JSON.stringify(myJson));
+        });
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td id="asdf">
+
+            </td>
+        </tr>
+
+    </table>
+
+
+    [{"idx":1,"title":"첫번째 글","writer":"abcd01","content":"첫번째 글
+    내용","hit":0,"regdate":"2021-08-20T04:42:31.000Z","moddate":"2021-08-20T04:42:31.000Z","password":"1111"},{"idx":2,"title":"두번째
+    글","writer":"abcd02","content":"두번째 글
+    내용","hit":0,"regdate":"2021-08-20T04:42:31.000Z","moddate":"2021-08-20T04:42:31.000Z","password":"2222"},{"idx":3,"title":"세번째
+    글","writer":"abcd03","content":"세번째 글
+    내용","hit":0,"regdate":"2021-08-20T04:42:31.000Z","moddate":"2021-08-20T04:42:31.000Z","password":"3333"}
+</body>
+
+<!-- <script>
+    document.getElementById("asdf").innerText = datas[0].title;
+</script> -->
+
+</html>

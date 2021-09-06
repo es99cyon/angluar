@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tutorial } from 'src/app/tutorial/tutorial.value'; 
+import { Tutorial } from "./tutorial.model";; 
 import { TutorialService } from 'src/app/tutorial/tutorial.service'; 
 @Component({ 
     selector: 'app-tutorial-add', 
@@ -25,4 +25,6 @@ export class TutorialAddComponent implements OnInit {
             });
     }
 }
+
+
 

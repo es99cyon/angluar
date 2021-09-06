@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'; 
-import { Tutorial } from 'src/app/tutorial/tutorial.value'; 
+import { Tutorial } from "./tutorial.model";; 
 import { TutorialService } from 'src/app/tutorial/tutorial.service'; 
 
 @Component({ 
@@ -13,14 +13,17 @@ export class TutorialListComponent implements OnInit {
     public tutorialList: Tutorial[] = []; 
     public tutorial: Tutorial = new Tutorial(); 
     public keyword = ''; 
+
+    // input은 기본값이 '' 최소 빈문자열이여야한다.
     
+
     constructor(private tutorialService: TutorialService) {} 
     
     ngOnInit(): void { 
         this.retrieveTutorialList(); 
     } 
         
-        // 
+        // 튜토리얼 목록 가져온다.
         public retrieveTutorialList(): void { 
             this.tutorialService.getTutorialList() 
             .subscribe(response => { 

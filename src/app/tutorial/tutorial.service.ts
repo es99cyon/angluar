@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; 
 import { Observable } from 'rxjs'; 
-import { Tutorial } from 'src/app/tutorial/tutorial.value'; 
-const baseUrl = 'http://localhost:8080/api/tutorial'; 
-@Injectable() 
+import { Tutorial } from "./tutorial.model";
+// import { Tutorial } from '../ src/app/tutorial/tutorial.value'; 
+const baseUrl = 'http://localhost:3000/api/tutorial'; 
+
+/*
+ * HTTP 요청을 위해 Service 만들기
+ * @Injectable() 데코레이터를 사용하여 같은 모듈 내의 component에서 호출할 수 있도록 해준다.
+ */
+@Injectable({
+    providedIn: 'root'
+}) 
 export class TutorialService { 
     constructor(private http: HttpClient) {} 
     
@@ -23,16 +31,16 @@ export class TutorialService {
         return this.http.get<Tutorial[]>(`${baseUrl}?keyword=${keyword}`); 
     } 
     
-    // Create tutorial
+    // 튜토리얼 생성한다.
     public createTutorial(data: Tutorial): Observable<any> { 
         return this.http.post(baseUrl, data); } 
         
-    // Update tutorial by id 
+    // 튜토리얼 수정한다.
     public updateTutorial(id: string, data: Tutorial): Observable<any> { 
         return this.http.put(`${baseUrl}/${id}`, data); 
     } 
     
-    // Delete tutorial by id 
+    // 튜토리얼 삭제한다.
     public deleteTutorial(id: string): Observable<any> { 
         return this.http.delete(`${baseUrl}/${id}`); 
     } 
